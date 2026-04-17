@@ -1,0 +1,14 @@
+{
+  "name": "html-beautifier",
+  "version": "1.0.0",
+  "description": "Format, beautify and minify HTML instantly. Clean, validate and optimize your HTML code with one click.",
+  "main": "api/process.js",
+  "scripts": {
+    "dev": "node dev-server.js",
+    "vercel-build": "echo 'Build complete'"
+  },
+  "dependencies": {},
+  "engines": {
+    "node": ">=18.0.0"
+  }
+}

@@ -1,0 +1,17 @@
+{
+  "name": "HTML Beautifier Pro",
+  "slug": "html-beautifier",
+  "tagline": "Format, beautify and minify HTML instantly. Clean, validate and optimize your HTML code with one click.",
+  "description": "Format, beautify and minify HTML instantly. Clean, validate and optimize your HTML code with one click.",
+  "price": "$19",
+  "features": [],
+  "tech_stack": "Vercel + Node.js",
+  "status": "building",
+  "vercel_url": null,
+  "github_url": null,
+  "lemonsqueezy_checkout_url": null,
+  "lemonsqueezy_product_id": null,
+  "webhook_url": null,
+  "created_cycle": null,
+  "deployed_cycle": null
+}

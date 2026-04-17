@@ -1,0 +1,385 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>HTML Beautifier Pro — Format & Minify HTML Instantly</title>
+  <meta name="description" content="Format, beautify and minify HTML instantly. Clean, validate and optimize your HTML code with one click. Perfect for developers.">
+  <meta property="og:title" content="HTML Beautifier Pro">
+  <meta property="og:description" content="Format, beautify and minify HTML instantly">
+  <meta property="og:type" content="website">
+  <script src="https://cdn.tailwindcss.com"></script>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
+  <style>
+    * { font-family: 'Inter', sans-serif; }
+    .font-mono { font-family: 'JetBrains Mono', monospace; }
+    .gradient-text {
+      background: linear-gradient(135deg, #22d3ee 0%, #818cf8 50%, #c084fc 100%);
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+      background-clip: text;
+    }
+    .glass {
+      background: rgba(255, 255, 255, 0.03);
+      backdrop-filter: blur(10px);
+      border: 1px solid rgba(255, 255, 255, 0.08);
+    }
+    .glow {
+      box-shadow: 0 0 40px rgba(34, 211, 238, 0.15), 0 0 80px rgba(129, 140, 248, 0.1);
+    }
+    .btn-glow:hover {
+      box-shadow: 0 0 30px rgba(34, 211, 238, 0.4), 0 0 60px rgba(129, 140, 248, 0.3);
+    }
+    @keyframes fadeInUp {
+      from { opacity: 0; transform: translateY(30px); }
+      to { opacity: 1; transform: translateY(0); }
+    }
+    .animate-fade-in { animation: fadeInUp 0.6s ease forwards; }
+    .delay-100 { animation-delay: 0.1s; }
+    .delay-200 { animation-delay: 0.2s; }
+    .delay-300 { animation-delay: 0.3s; }
+    .delay-400 { animation-delay: 0.4s; }
+    .demo-area:focus { outline: none; }
+    .tab-active {
+      background: linear-gradient(135deg, #22d3ee, #818cf8);
+      color: #0a0a0a;
+    }
+    .pulse-dot {
+      animation: pulse 2s infinite;
+    }
+    @keyframes pulse {
+      0%, 100% { opacity: 1; }
+      50% { opacity: 0.5; }
+    }
+  </style>
+</head>
+<body class="bg-[#0a0a0a] text-white min-h-screen">
+  <!-- Navigation -->
+  <nav class="fixed top-0 left-0 right-0 z-50 glass border-b border-white/5">
+    <div class="max-w-7xl mx-auto px-6 py-4 flex justify-between items-center">
+      <div class="flex items-center gap-2">
+        <span class="text-2xl font-bold gradient-text">&lt;/&gt;</span>
+        <span class="font-semibold text-white/90">HTML Beautifier</span>
+      </div>
+      <a href="#demo" class="text-sm text-white/70 hover:text-white transition">Try Demo</a>
+    </div>
+  </nav>
+
+  <!-- Hero Section -->
+  <section class="pt-32 pb-20 px-6">
+    <div class="max-w-5xl mx-auto text-center">
+      <div class="inline-flex items-center gap-2 px-4 py-2 rounded-full glass text-sm text-cyan-300 mb-6 animate-fade-in">
+        <span class="w-2 h-2 bg-cyan-400 rounded-full pulse-dot"></span>
+        New: Now with HTML validation
+      </div>
+      <h1 class="text-5xl md:text-7xl font-bold mb-6 animate-fade-in delay-100 leading-tight">
+        Format & Minify<br><span class="gradient-text">HTML Instantly</span>
+      </h1>
+      <p class="text-xl text-white/60 max-w-2xl mx-auto mb-10 animate-fade-in delay-200">
+        Clean, validate and optimize your HTML code with one click. Perfect for developers who want professional, readable code.
+      </p>
+      <div class="flex flex-col sm:flex-row gap-4 justify-center animate-fade-in delay-300">
+        <a href="#demo" class="btn-glow inline-flex items-center justify-center gap-2 px-8 py-4 bg-gradient-to-r from-cyan-500 to-indigo-500 rounded-xl font-semibold text-white transition-all hover:scale-105">
+          Try Free Demo
+          <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M13 7l5 5m0 0l-5 5m5-5H6"></path></svg>
+        </a>
+        <button id="buyBtn" class="inline-flex items-center justify-center gap-2 px-8 py-4 glass rounded-xl font-semibold text-white hover:bg-white/5 transition-all">
+          Get Pro — $19
+        </button>
+      </div>
+    </div>
+  </section>
+
+  <!-- Demo Section -->
+  <section id="demo" class="py-20 px-6">
+    <div class="max-w-6xl mx-auto">
+      <h2 class="text-3xl font-bold text-center mb-4">Try It Now</h2>
+      <p class="text-white/60 text-center mb-12">Paste your messy HTML and see the magic happen</p>
+
+      <div class="glass rounded-2xl p-6 glow">
+        <!-- Tabs -->
+        <div class="flex gap-2 mb-6">
+          <button id="tab-beautify" class="tab-active px-6 py-2 rounded-lg font-medium transition-all" onclick="setMode('beautify')">Beautify</button>
+          <button id="tab-minify" class="px-6 py-2 rounded-lg font-medium text-white/70 hover:text-white transition-all" onclick="setMode('minify')">Minify</button>
+          <button id="tab-validate" class="px-6 py-2 rounded-lg font-medium text-white/70 hover:text-white transition-all" onclick="setMode('validate')">Validate</button>
+        </div>
+
+        <!-- Editor -->
+        <div class="grid md:grid-cols-2 gap-4">
+          <div class="space-y-2">
+            <label class="text-sm text-white/60">Input (Messy HTML)</label>
+            <textarea id="input" class="demo-area w-full h-80 p-4 bg-black/40 rounded-xl font-mono text-sm text-white/90 border border-white/10 resize-none focus:border-cyan-500/50" placeholder="Paste your HTML here..."><!DOCTYPE html><html><head><title>Test</title></head><body><div class="container"><h1>Hello World</h1><p>This is a paragraph.</p></div></body></html></textarea>
+          </div>
+          <div class="space-y-2">
+            <label class="text-sm text-white/60">Output</label>
+            <textarea id="output" readonly class="w-full h-80 p-4 bg-black/40 rounded-xl font-mono text-sm text-cyan-300/90 border border-white/10 resize-none" placeholder="Result will appear here..."></textarea>
+          </div>
+        </div>
+
+        <!-- Actions -->
+        <div class="flex flex-wrap gap-4 mt-6 items-center">
+          <button onclick="processHTML()" class="px-6 py-3 bg-gradient-to-r from-cyan-500 to-indigo-500 rounded-xl font-semibold text-white hover:opacity-90 transition-all">
+            Process HTML
+          </button>
+          <button onclick="copyOutput()" class="px-6 py-3 glass rounded-xl font-medium text-white/80 hover:text-white transition-all">
+            Copy Result
+          </button>
+          <button onclick="clearAll()" class="px-6 py-3 text-white/50 hover:text-white/80 transition-all">
+            Clear
+          </button>
+          <div id="stats" class="ml-auto text-sm text-white/50"></div>
+        </div>
+
+        <!-- Validation Results -->
+        <div id="validation-result" class="hidden mt-4 p-4 rounded-xl"></div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Features -->
+  <section class="py-20 px-6">
+    <div class="max-w-6xl mx-auto">
+      <h2 class="text-3xl font-bold text-center mb-4">Everything You Need</h2>
+      <p class="text-white/60 text-center mb-16">Professional HTML tools for serious developers</p>
+
+      <div class="grid md:grid-cols-3 gap-6">
+        <div class="glass rounded-2xl p-6 hover:bg-white/5 transition-all">
+          <div class="w-12 h-12 rounded-xl bg-gradient-to-br from-cyan-500 to-indigo-500 flex items-center justify-center mb-4">
+            <svg class="w-6 h-6 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16M4 18h16"></path></svg>
+          </div>
+          <h3 class="text-xl font-semibold mb-2">Smart Beautify</h3>
+          <p class="text-white/60">Automatically indent and format your HTML with customizable spacing. Makes any mess readable.</p>
+        </div>
+
+        <div class="glass rounded-2xl p-6 hover:bg-white/5 transition-all">
+          <div class="w-12 h-12 rounded-xl bg-gradient-to-br from-purple-500 to-pink-500 flex items-center justify-center mb-4">
+            <svg class="w-6 h-6 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M13 10V3L4 14h7v7l9-11h-7z"></path></svg>
+          </div>
+          <h3 class="text-xl font-semibold mb-2">Aggressive Minify</h3>
+          <p class="text-white/60">Remove whitespace, comments, and unnecessary characters. Reduce file size up to 70%.</p>
+        </div>
+
+        <div class="glass rounded-2xl p-6 hover:bg-white/5 transition-all">
+          <div class="w-12 h-12 rounded-xl bg-gradient-to-br from-emerald-500 to-cyan-500 flex items-center justify-center mb-4">
+            <svg class="w-6 h-6 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 12l2 2 4-4m6 2a9 9 0 11-18 0 9 9 0 0118 0z"></path></svg>
+          </div>
+          <h3 class="text-xl font-semibold mb-2">Validation</h3>
+          <p class="text-white/60">Check for unclosed tags, mismatched elements, and common HTML errors instantly.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Why Pro -->
+  <section class="py-20 px-6">
+    <div class="max-w-4xl mx-auto glass rounded-3xl p-12">
+      <h2 class="text-3xl font-bold text-center mb-12">Pro Features</h2>
+      <div class="space-y-6">
+        <div class="flex items-center gap-4">
+          <div class="w-6 h-6 rounded-full bg-gradient-to-br from-cyan-400 to-indigo-500 flex items-center justify-center">
+            <svg class="w-4 h-4 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="3" d="M5 13l4 4L19 7"></path></svg>
+          </div>
+          <span class="text-lg">Unlimited HTML processing</span>
+        </div>
+        <div class="flex items-center gap-4">
+          <div class="w-6 h-6 rounded-full bg-gradient-to-br from-cyan-400 to-indigo-500 flex items-center justify-center">
+            <svg class="w-4 h-4 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="3" d="M5 13l4 4L19 7"></path></svg>
+          </div>
+          <span class="text-lg">API access for automation</span>
+        </div>
+        <div class="flex items-center gap-4">
+          <div class="w-6 h-6 rounded-full bg-gradient-to-br from-cyan-400 to-indigo-500 flex items-center justify-center">
+            <svg class="w-4 h-4 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="3" d="M5 13l4 4L19 7"></path></svg>
+          </div>
+          <span class="text-lg">Custom indent sizes</span>
+        </div>
+        <div class="flex items-center gap-4">
+          <div class="w-6 h-6 rounded-full bg-gradient-to-br from-cyan-400 to-indigo-500 flex items-center justify-center">
+            <svg class="w-4 h-4 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="3" d="M5 13l4 4L19 7"></path></svg>
+          </div>
+          <span class="text-lg">Comment preservation options</span>
+        </div>
+        <div class="flex items-center gap-4">
+          <div class="w-6 h-6 rounded-full bg-gradient-to-br from-cyan-400 to-indigo-500 flex items-center justify-center">
+            <svg class="w-4 h-4 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="3" d="M5 13l4 4L19 7"></path></svg>
+          </div>
+          <span class="text-lg">Lifetime updates</span>
+        </div>
+      </div>
+      <div class="text-center mt-12">
+        <div class="text-5xl font-bold gradient-text mb-2">$19</div>
+        <p class="text-white/50 mb-6">One-time payment, lifetime access</p>
+        <button id="buyBtn2" class="btn-glow inline-flex items-center gap-2 px-8 py-4 bg-gradient-to-r from-cyan-500 to-indigo-500 rounded-xl font-semibold text-white transition-all hover:scale-105">
+          Get HTML Beautifier Pro
+          <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M17 8l4 4m0 0l-4 4m4-4H3"></path></svg>
+        </button>
+      </div>
+    </div>
+  </section>
+
+  <!-- FAQ -->
+  <section class="py-20 px-6">
+    <div class="max-w-3xl mx-auto">
+      <h2 class="text-3xl font-bold text-center mb-12">FAQ</h2>
+      <div class="space-y-4">
+        <details class="glass rounded-xl">
+          <summary class="p-6 cursor-pointer font-medium flex justify-between items-center">
+            Is my HTML code secure?
+            <span class="text-cyan-400">+</span>
+          </summary>
+          <div class="px-6 pb-6 text-white/60">
+            Absolutely. All processing happens in memory and your code is never stored on our servers. We don't log or save any HTML content.
+          </div>
+        </details>
+        <details class="glass rounded-xl">
+          <summary class="p-6 cursor-pointer font-medium flex justify-between items-center">
+            What's the file size limit?
+            <span class="text-cyan-400">+</span>
+          </summary>
+          <div class="px-6 pb-6 text-white/60">
+            The Pro version supports HTML files up to 10MB. The demo is limited to 100KB for performance.
+          </div>
+        </details>
+        <details class="glass rounded-xl">
+          <summary class="p-6 cursor-pointer font-medium flex justify-between items-center">
+            Can I use this for client work?
+            <span class="text-cyan-400">+</span>
+          </summary>
+          <div class="px-6 pb-6 text-white/60">
+            Yes! Your license includes commercial use. Use it for unlimited personal and client projects.
+          </div>
+        </details>
+        <details class="glass rounded-xl">
+          <summary class="p-6 cursor-pointer font-medium flex justify-between items-center">
+            Do you offer refunds?
+            <span class="text-cyan-400">+</span>
+          </summary>
+          <div class="px-6 pb-6 text-white/60">
+            Yes, we offer a 14-day money-back guarantee. If you're not satisfied, contact us for a full refund.
+          </div>
+        </details>
+      </div>
+    </div>
+  </section>
+
+  <!-- Footer -->
+  <footer class="py-12 px-6 border-t border-white/5">
+    <div class="max-w-6xl mx-auto flex flex-col md:flex-row justify-between items-center gap-4">
+      <div class="flex items-center gap-2">
+        <span class="text-xl font-bold gradient-text">&lt;/&gt;</span>
+        <span class="text-white/60">HTML Beautifier Pro</span>
+      </div>
+      <p class="text-white/40 text-sm">© 2025 HTML Beautifier Pro. All rights reserved.</p>
+    </div>
+  </footer>
+
+  <script>
+    const CHECKOUT_URL = window.__CHECKOUT_URL || null;
+
+    // Buy buttons
+    document.querySelectorAll('#buyBtn, #buyBtn2').forEach(btn => {
+      btn.addEventListener('click', (e) => {
+        e.preventDefault();
+        if (CHECKOUT_URL) window.open(CHECKOUT_URL, '_blank');
+        else alert('Pro version coming soon! Contact @OtonomUniverseCreator on Telegram.');
+      });
+    });
+
+    let currentMode = 'beautify';
+
+    function setMode(mode) {
+      currentMode = mode;
+      document.querySelectorAll('[id^="tab-"]').forEach(tab => {
+        tab.classList.remove('tab-active');
+        tab.classList.add('text-white/70');
+      });
+      document.getElementById('tab-' + mode).classList.add('tab-active');
+      document.getElementById('tab-' + mode).classList.remove('text-white/70');
+      document.getElementById('validation-result').classList.add('hidden');
+    }
+
+    async function processHTML() {
+      const input = document.getElementById('input').value;
+      const output = document.getElementById('output');
+      const stats = document.getElementById('stats');
+      const validationDiv = document.getElementById('validation-result');
+
+      if (!input.trim()) {
+        output.value = 'Please enter some HTML to process';
+        return;
+      }
+
+      output.value = 'Processing...';
+      stats.textContent = '';
+      validationDiv.classList.add('hidden');
+
+      try {
+        const response = await fetch('/api/process', {
+          method: 'POST',
+          headers: { 'Content-Type': 'application/json' },
+          body: JSON.stringify({
+            html: input,
+            action: currentMode,
+            indentSize: 2
+          })
+        });
+
+        const data = await response.json();
+
+        if (data.error) {
+          output.value = 'Error: ' + data.error;
+          return;
+        }
+
+        if (currentMode === 'validate') {
+          output.value = data.valid ? 'Valid HTML!' : 'Validation failed. See details below.';
+          validationDiv.classList.remove('hidden');
+          if (data.valid) {
+            validationDiv.className = 'mt-4 p-4 rounded-xl bg-emerald-500/10 border border-emerald-500/30 text-emerald-400';
+            validationDiv.innerHTML = '<p>✓ Your HTML is valid!</p>';
+          } else {
+            validationDiv.className = 'mt-4 p-4 rounded-xl bg-red-500/10 border border-red-500/30 text-red-400';
+            validationDiv.innerHTML = '<p class="font-medium mb-2">Found ' + data.errors.length + ' error(s):</p>' +
+              data.errors.map(e => '<p class="text-sm">• ' + e + '</p>').join('');
+          }
+        } else {
+          output.value = data.result;
+          if (data.stats) {
+            if (data.stats.savingsPercent) {
+              stats.textContent = `Reduced by ${data.stats.savingsPercent}% (${data.stats.originalSize} → ${data.stats.minifiedSize} chars)`;
+            } else if (data.stats.beautifiedSize) {
+              stats.textContent = `Original: ${data.stats.originalSize} chars | Beautified: ${data.stats.beautifiedSize} chars`;
+            }
+          }
+        }
+      } catch (err) {
+        output.value = 'Error: ' + err.message;
+      }
+    }
+
+    function copyOutput() {
+      const output = document.getElementById('output');
+      output.select();
+      document.execCommand('copy');
+      const stats = document.getElementById('stats');
+      const original = stats.textContent;
+      stats.textContent = 'Copied to clipboard!';
+      setTimeout(() => stats.textContent = original, 2000);
+    }
+
+    function clearAll() {
+      document.getElementById('input').value = '';
+      document.getElementById('output').value = '';
+      document.getElementById('stats').textContent = '';
+      document.getElementById('validation-result').classList.add('hidden');
+    }
+
+    // Demo on load
+    window.addEventListener('load', () => {
+      setTimeout(processHTML, 500);
+    });
+  </script>
+</body>
+</html>
