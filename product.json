@@ -4,14 +4,23 @@
   "tagline": "Format, beautify and minify HTML instantly. Clean, validate and optimize your HTML code with one click.",
   "description": "Format, beautify and minify HTML instantly. Clean, validate and optimize your HTML code with one click.",
   "price": "$19",
-  "features": [],
+  "features": [
+    "HTML formatting and beautification",
+    "HTML minification",
+    "HTML validation",
+    "Dark theme UI",
+    "One-click copy"
+  ],
   "tech_stack": "Vercel + Node.js",
-  "status": "building",
-  "vercel_url": null,
-  "github_url": null,
-  "lemonsqueezy_checkout_url": null,
+  "status": "live",
+  "vercel_url": "https://html-beautifier.vercel.app",
+  "github_url": "https://github.com/universe7creator/html-beautifier",
+  "lemonsqueezy_checkout_url": "https://profitbridge.lemonsqueezy.com/checkout/buy/html-beautifier-pro-001",
   "lemonsqueezy_product_id": null,
-  "webhook_url": null,
-  "created_cycle": null,
-  "deployed_cycle": null
+  "webhook_url": "https://html-beautifier.vercel.app/api/webhook",
+  "created_cycle": 812,
+  "deployed_cycle": 812,
+  "checkout_url": "https://profitbridge.lemonsqueezy.com/checkout/buy/html-beautifier-pro-001",
+  "optimization_notes": "Added Schema.org SoftwareApplication structured data",
+  "last_optimized": "2026-04-18T14:00:00Z"
 }
